@@ -19,8 +19,7 @@ public class EmployeeEventGenerator {
         ObjectMapper objectMapper=new ObjectMapper();
         for(int i=1;i<=5;i++){
             String employeeJson=objectMapper
-                    .writeValueAsString(new Employee("EMP_"+i,"Employee "+i,
-                            LocalDateTime.now()));
+                    .writeValueAsString(new Employee("EMP_"+i,"Employee "+i));
             rabbitTemplate.convertAndSend("com.uday.employeeQueue",employeeJson);
         }
     }
