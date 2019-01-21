@@ -5,12 +5,10 @@ import java.time.LocalDateTime;
 public class Employee {
     private String employeeId;
     private String employeeName;
-    private LocalDateTime createdOn;
 
-    public Employee(String employeeId, String employeeName, LocalDateTime createdOn) {
+    public Employee(String employeeId, String employeeName) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
-        this.createdOn = createdOn;
     }
 
     public String getEmployeeId() {
@@ -27,13 +25,5 @@ public class Employee {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
-    }
-
-    public LocalDateTime getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(LocalDateTime createdOn) {
-        this.createdOn = createdOn;
     }
 }
