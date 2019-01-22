@@ -1,5 +1,6 @@
 package com.uday.producer;
 
+import com.uday.producer.service.DirectPublisherService;
 import com.uday.producer.service.EmployeeEventGenerator;
 import com.uday.producer.service.FanoutPublisherService;
 import com.uday.producer.service.ProducerService;
@@ -12,18 +13,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 @EnableScheduling
 public class ProducerApplication implements CommandLineRunner {
 
-    /*@Autowired
-    private ProducerService producerService;*/
-    //@Autowired
-    //private EmployeeEventGenerator employeeEventGenerator;
-
     @Autowired
-    private FanoutPublisherService fanoutPublisherService;
+    DirectPublisherService directPublisherService;
 
 	public static void main(String[] args) {
 
@@ -32,10 +30,8 @@ public class ProducerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //producerService.publishMessage("Message published at "+ LocalDateTime.now());
-        //employeeEventGenerator.generateEmployees();
-        fanoutPublisherService.publishToFanoutExchange();
 
+        directPublisherService.publishDirectMessages();
     }
 }
 
