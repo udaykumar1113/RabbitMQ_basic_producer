@@ -6,11 +6,24 @@ public class Picture {
     private String type;
     private Long size;
 
+    public Picture() {
+    }
+
     public Picture(String name, String source, String type, Long size) {
         this.name = name;
         this.source = source;
         this.type = type;
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "name='" + name + '\'' +
+                ", source='" + source + '\'' +
+                ", type='" + type + '\'' +
+                ", size=" + size +
+                '}';
     }
 
     public String getName() {
