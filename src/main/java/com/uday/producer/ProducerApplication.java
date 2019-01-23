@@ -18,7 +18,7 @@ import java.util.List;
 public class ProducerApplication implements CommandLineRunner {
 
     @Autowired
-    TopicPublisherService topicPublisherService;
+    LargeImageProducer largeImageProducer;
 
 	public static void main(String[] args) {
 
@@ -28,7 +28,7 @@ public class ProducerApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        topicPublisherService.generateMessagesForTopic();
+        largeImageProducer.generateLargeImage();
     }
 }
 
