@@ -1,9 +1,6 @@
 package com.uday.producer;
 
-import com.uday.producer.service.DirectPublisherService;
-import com.uday.producer.service.EmployeeEventGenerator;
-import com.uday.producer.service.FanoutPublisherService;
-import com.uday.producer.service.ProducerService;
+import com.uday.producer.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +18,7 @@ import java.util.List;
 public class ProducerApplication implements CommandLineRunner {
 
     @Autowired
-    DirectPublisherService directPublisherService;
+    TopicPublisherService topicPublisherService;
 
 	public static void main(String[] args) {
 
@@ -31,7 +28,7 @@ public class ProducerApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        directPublisherService.publishDirectMessages();
+        topicPublisherService.generateMessagesForTopic();
     }
 }
 
